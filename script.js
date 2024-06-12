@@ -1,126 +1,160 @@
-// //selects ID fruit, and the class suggestion ul, var.
-// const input = document.querySelector('#fruit');
-// const suggestions = document.querySelector('.suggestions ul');
+const input = document.querySelector('#fruit');///id fruit
+const suggestions = document.querySelector('.suggestions ul'); //ul child of the suggestions class (which is)
 
-// const fruit = [ 'Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
-
-
-// //searches the fruit array, takes the string parameter 'str'. and Initalizes an empty array.
-// function search(str) {
-// 	let results = [];
-// 	const val = str.toLowerCase();
-
-// 	for (i = 0; i < fruit.length; i++) {
-// 		if (fruit[i].toLowerCase().indexOf(val) > -1) {
-// 			results.push(fruit[i]);
-// 		}
-// 	}
-
-// 	return results;
-// }
-
-// // executes when the user types in the search input field.
-// function searchHandler(e) {
-// 	const inputVal = e.currentTarget.value;
-// 	let results = [];
-// 	if (inputVal.length > 0) {
-// 		results = search(inputVal);
-// 	}
-// 	showSuggestions(results, inputVal);
-// }
-
-// function showSuggestions(results, inputVal) {
-    
-//     suggestions.innerHTML = '';
-
-// 	if (results.length > 0) {
-// 		for (i = 0; i < results.length; i++) {
-// 			let item = results[i];
-// 			// Highlights only the first match
-// 			// TODO: highlight all matches
-// 			const match = item.match(new RegExp(inputVal, 'i'));
-// 			item = item.replace(match[0], `<strong>${match[0]}</strong>`);
-// 			suggestions.innerHTML += `<li>${item}</li>`;
-// 		}
-// 		suggestions.classList.add('has-suggestions');
-// 	} else {
-// 		results = [];
-// 		suggestions.innerHTML = '';
-// 		suggestions.classList.remove('has-suggestions');
-// 	}
-// }
-
-// function useSuggestion(e) {
-// 	input.value = e.target.innerText;
-// 	input.focus();
-// 	suggestions.innerHTML = '';
-// 	suggestions.classList.remove('has-suggestions');
-// }
-
-// input.addEventListener('keyup', searchHandler);
-// suggestions.addEventListener('click', useSuggestion);
-
-
-
-const input = document.querySelector('#fruit');
-const suggestions = document.querySelector('.suggestions ul');
-
-const fruit = [ 'Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
+const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
 function search(str) {
+
+	// TODO
 	let results = [];
-	const val = str.toLowerCase();
-
-	for (let i = 0; i < fruit.length; i++) {
-		if (fruit[i].toLowerCase().includes(val)) {
-			results.push(fruit[i]);
-		}
+	if (str.length > 0) {
+	  results = fruit.filter(item => {
+		return item.toLowerCase().includes(str.toLowerCase());
+	  });
 	}
-
 	return results;
+	//////////////////////
+
+
+//NON ARROW VERSION
+	// TODO
+// let results = [];
+// if (str.length > 0) {
+//   results = fruit.filter(function(item) {
+// 	return item.toLowerCase().includes(str.toLowerCase());
+//   });
+// }
+// return results;
+//////////////////////
+
+
+
 }
 
 function searchHandler(e) {
-	const inputVal = e.currentTarget.value;
-	let results = [];
-	if (inputVal.length > 0) {
-		results = search(inputVal);
-	}
+	// TODO
+	const inputVal = e.target.value;
+	const results = search(inputVal);
 	showSuggestions(results, inputVal);
+	///////////
 }
 
 function showSuggestions(results, inputVal) {
-    suggestions.innerHTML = '';
+		// TODO
+	// suggestions.innerHTML = '';
+	// const regex = new RegExp(inputVal, 'gi');//
+	// results.forEach((fruit) => {
+	//   const li = document.createElement('li');
+	//   const boldMatch = fruit.replace(regex, (match) => `<strong>${match}</strong>`);
+	//   li.innerHTML = boldMatch;
+	//   suggestions.appendChild(li);
+	// });
+	// if (results.length > 0) {
+	//   suggestions.parentElement.classList.add('has-suggestions');
+	// } else {
+	//   suggestions.parentElement.classList.remove('has-suggestions');
+	// }
+	// //////////
 
-	if (results.length > 0) {
-		for (let i = 0; i < results.length; i++) {
-			let item = results[i];
-			const match = item.match(new RegExp(escapeRegExp(inputVal), 'ig'));
-			if (match) {
-				match.forEach(m => {
-					item = item.replace(new RegExp(escapeRegExp(m), 'i'), `<strong>${m}</strong>`);
-				});
-			}
-			suggestions.innerHTML += `<li>${item}</li>`;
-		}
-		suggestions.classList.add('has-suggestions');
-	} else {
-		results = [];
+
+
+	// 	suggestions.innerHTML = '';
+	// 	const inputValLowerCase = inputVal.toLowerCase();
+	// 	results.forEach((fruit) => {
+	// 	  const li = document.createElement('li');
+	// 	  const fruitLowerCase = fruit.toLowerCase();
+	// 	  const index = fruitLowerCase.indexOf(inputValLowerCase);
+	// 	  if (index !== -1) {
+	// 		const start = fruit.substring(0, index);
+	// 		const match = fruit.substring(index, index + inputVal.length);
+	// 		const end = fruit.substring(index + inputVal.length);
+	// 		li.innerHTML = `${start}<strong>${match}</strong>${end}`;
+	// 		suggestions.appendChild(li);
+	// 	  }
+	// 	});
+	// 	if (results.length > 0) {
+	// 	  suggestions.parentElement.classList.add('has-suggestions');
+	// 	} else {
+	// 	  suggestions.parentElement.classList.remove('has-suggestions');
+	// 	}
+	  
+	
+
+	// 	suggestions.innerHTML = '';
+	// 	const inputValLowerCase = inputVal.toLowerCase();
+	// 	results.forEach((fruit) => {
+	// 	  const li = document.createElement('li');
+	// 	  const fruitLowerCase = fruit.toLowerCase();
+	// 	  const index = fruitLowerCase.indexOf(inputValLowerCase);
+	// 	  if (index !== -1) {
+	// 		const match = fruitLowerCase.slice(index, index + inputVal.length);
+	// 		const start = fruit.slice(0, index);
+	// 		const end = fruit.slice(index + inputVal.length);
+	// 		li.innerHTML = `${start}<strong>${match}</strong>${end}`;
+	// 		suggestions.appendChild(li);
+	// 	  }
+	// 	});
+	// 	if (results.length > 0) {
+	// 	  suggestions.parentElement.classList.add('has-suggestions');
+	// 	} else {
+	// 	  suggestions.parentElement.classList.remove('has-suggestions');
+	// 	}
+		
+
+
 		suggestions.innerHTML = '';
-		suggestions.classList.remove('has-suggestions');
-	}
+const inputValLowerCase = inputVal.toLowerCase();
+results.forEach((fruit) => {
+  const li = document.createElement('li');
+  const fruitLowerCase = fruit.toLowerCase();
+  const index = fruitLowerCase.indexOf(inputValLowerCase);
+  if (index !== -1) {
+    let match = '';
+    for (let i = index; i < index + inputVal.length; i++) {
+      match += fruit[i];
+    }
+    let start = '';
+    for (let i = 0; i < index; i++) {
+      start += fruit[i];
+    }
+    let end = '';
+    for (let i = index + inputVal.length; i < fruit.length; i++) {
+      end += fruit[i];
+    }
+    li.innerHTML = `${start}<strong>${match}</strong>${end}`;
+    suggestions.appendChild(li);
+  }
+});
+if (results.length > 0) {
+  suggestions.parentElement.classList.add('has-suggestions');
+} else {
+  suggestions.parentElement.classList.remove('has-suggestions');
 }
+
+////////////
+
+  }
+  
+
+
+
 
 function useSuggestion(e) {
-	input.value = e.target.innerText;
-	input.focus();
-	suggestions.innerHTML = '';
-	suggestions.classList.remove('has-suggestions');
+	// TODO
+	// if (e.target.nodeName === 'LI') {
+	// 	const text = e.target.textContent;
+	// 	input.value = text;
+	// 	suggestions.innerHTML = '';
+	//   }
+
+
+	  if (e.target.tagName === 'LI') {
+		const text = e.target.textContent;
+		input.value = text;
+		suggestions.innerHTML = '';
+	  }
+	  /////////////
 }
 
-input.addEventListener('input', searchHandler);
+input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
-
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
